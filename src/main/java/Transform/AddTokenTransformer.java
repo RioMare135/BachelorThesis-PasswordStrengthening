@@ -13,7 +13,6 @@ public final class AddTokenTransformer implements TokenTransformer {
     @Override
     public List<String> transform(List<String> tokens) {
         List<String> out = new ArrayList<>(tokens);
-        //TokenTransformer.rng() could cause problems
         String tokenToAdd = vocabulary.get(TokenTransformer.rng().nextInt(vocabulary.size()));
         int pos = TokenTransformer.rng().nextInt(out.size() + 1); // insert anywhere
         out.add(pos, tokenToAdd);

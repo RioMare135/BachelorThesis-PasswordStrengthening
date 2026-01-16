@@ -39,13 +39,13 @@ public final class Tokenizer {
     }
 
     private void splitAlphabeticRun(String run, List<String> tokens) {
-        // Step 1: split by separators like "_" or "-"
+        //split by separators like "_" or "-"
         String[] parts = WORD_SEPARATORS.split(run);
 
         for (String part : parts) {
             if (part.isEmpty()) continue;
 
-            // Step 2: split camelCase / PascalCase
+            //split camelCase / PascalCase
             String[] camelParts = CAMEL_CASE.split(part);
             for (String cp : camelParts) {
                 if (!cp.isEmpty()) {
@@ -56,7 +56,7 @@ public final class Tokenizer {
     }
 
     public String detokenize(List<String> tokens) {
-        // Keep original behavior: exact reconstruction
+        //reconstruction
         return String.join("", tokens);
     }
 }
